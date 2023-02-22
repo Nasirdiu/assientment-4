@@ -1,8 +1,15 @@
 <?php
-function concatFromEnd($str1, $str2) {
-    $len1 = strlen($str1);
-    $len2 = strlen($str2);
-    return substr($str1, 0, $len1 - $len2) . $str2;
-}
+// 2.Write a PHP function to concatenate two strings, but with the second string starting from the end of the first string.
+$fStr = 'Nasir Uddin ';
+$lStr = 'Is coder coder';
 
-echo concatFromEnd(4, 19);
+function concatenateTwoStrings($a, $b) {
+    $a = explode(' ',$a);
+    $a = array_shift($a);
+    
+    $b = explode(' ',$b);
+    $b = strrev(array_pop($b));
+
+    return ($a.' '.$b);
+}
+echo concatenateTwoStrings($fStr, $lStr);

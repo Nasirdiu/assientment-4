@@ -1,18 +1,16 @@
 <?php
-
-function findSecondLargest($arr) {
-    $first = $arr[0];
-    $second = $arr[0];
-
-    foreach ($arr as $num) {
-        if ($num > $first) {
-            $second = $first;
-            $first = $num;
-        } elseif ($num > $second && $num != $first) {
-            $second = $num;
-        }
+// 5.Write a PHP function to find the second largest number in an array of numbers.
+$numbers = array(5, 3, 32, 1, 10);
+function findSecondLargestNum(array $arr):int {
+    if(count($arr) <= 2) {
+        return "Please send minimum 3 values";
     }
 
-    return $second;
+    usort($arr, function($a, $b) {
+        return ($a < $b);
+    });
+
+    return $arr[1];
 }
-echo findSecondLargest([4],[4]);
+
+echo findSecondLargestNum($numbers);
